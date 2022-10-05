@@ -6,6 +6,6 @@
     margin: 20px;
 }
 
-.mainDiv > #editableTable {
-    height: 70vh;
+.mainDiv > .editable {
+    height: 88vh;
 }

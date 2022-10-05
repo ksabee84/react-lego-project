@@ -16,8 +16,12 @@
     flex-wrap: wrap;
 }
 
+.legosPage > .mainDiv > .searchField {
+    display: block;
+}
+
 .legosPage > .mainDiv > .alertDiv {
-    height: 85vh;
+    height: 88vh;
 }
 
 .legosPage > .mainDiv > .alertDiv > .problem {

@@ -90,10 +90,11 @@ const AdminInterface = () => {
                 isRenderDetail && detailedRendering()
             }
             <EditableTable
-                        rows={legoItems}
-                        edit={editSaved}
-                        deleteElement={(e, params) => deleteItem(params.id).then( () => {fetchItems()})}
-                        id='editableTable'
+                rows={legoItems}
+                edit={editSaved}
+                deleteElement={(e, params) => deleteItem(params.id).then( () => {fetchItems()})}
+                id='editableTable'
+                className='editable'
             /> 
         </div>
     );

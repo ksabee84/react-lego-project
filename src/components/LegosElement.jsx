@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchField from "./SearchField";
 import { Card, CardMedia, CardContent, CardActions } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -30,6 +31,7 @@ const LegosElement = () => {
 
     return(
         <div className="mainDiv">
+            <SearchField className="searchField" />
             {
                 legoItemsData.length > 0 ? legoItemsData.map((item) => (
                     <div className="itemCardsDiv">
