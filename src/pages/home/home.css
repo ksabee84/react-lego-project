@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+.landingPageDiv{
+    margin: 0px;
+    box-sizing: border-box;
+    height: 100vh;
+    text-align: center;
+}
+
+.landingPageDiv > .enterButton{
+    display: flex;
+    margin: auto;
+}
+
+.landingPageDiv > .enterButton > .links{
+    text-decoration: none;
+    font-family: 'Bungee Spice';
+    font-size: 1.2rem;
+}
+
+.landingPageDiv > .welcome{
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    margin: 0 20px;
+    text-align: center;
+    font-family: 'Bungee Spice';
+    font-variant: small-caps;
+    text-shadow: black;
+    font-size: xx-large;
+    color: blueviolet;
+}
+
+.landingPageDiv > .footer{
+    padding-top: 5vh;
+    font-family: 'Bungee Spice';
+    font-size: 1rem;
+}

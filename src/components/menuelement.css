@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+.buttons > .buttonGroup {
+    width: 90vw;
+}
+
+.buttons > .buttonGroup > .button {
+    box-shadow: grey 1px 0px;
+}
+
+.buttons > .buttonGroup > .button > .links {
+    text-decoration-line: none;
+    font-family: 'Bungee Spice';
+    font-size: 1.5rem;
+}
+
+.buttons > .basketIcon {
+    position: relative;
+    left: 100px;
+    top: 20px;
+}

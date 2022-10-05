@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+.legosPage {
+    margin: auto;
+}
+
+.legosPage > .buttons {
+    text-align: center;
+}
+
+.legosPage > .mainDiv {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.legosPage > .mainDiv > .alertDiv {
+    height: 85vh;
+}
+
+.legosPage > .mainDiv > .alertDiv > .problem {
+    margin-top: 200px;
+}
+
+.legosPage > .mainDiv > .alertDiv > .problem > .errorText {
+    font-family: 'Bungee Spice';
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card {
+    margin: 10px 10px 0 10px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .imgDiv {
+    height: 330px;
+    align-items: center;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .imgDiv > .cardImg {
+    width: 300px;
+    height: auto;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv {
+    align-items: center;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemName {
+    font-family: 'Bungee Spice';
+    align-items: center;
+    height: 10vh;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemImgText {
+    font-family: 'Bungee Spice';
+    height: 50px;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemText {
+    font-family: 'Bungee Spice';
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .itemCardActions {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.legosPage > .mainDiv > .itemCardsDiv > .card > .itemCardActions > .itemsButton {
+    font-family: 'Bungee Spice';
+}

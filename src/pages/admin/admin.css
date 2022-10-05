@@ -1,0 +1,11 @@
+.mainDiv {
+    text-align: center;
+}
+
+.mainDiv > .buttonsContainer > .itemDataButtons {
+    margin: 20px;
+}
+
+.mainDiv > #editableTable {
+    height: 70vh;
+}
