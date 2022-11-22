@@ -1,12 +1,25 @@
 import React, { useState } from "react";
+import PropTypes, { number, string } from 'prop-types';
 import SearchField from "./SearchField";
 import { Card, CardMedia, CardContent, CardActions } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AlertComponent from "./AlertComponent";
 
-const LegosElement = () => {
-    const [selectedIndex, setSelectedIndex] = useState(0);
+const LegosElement = ({
+    id,
+    name,
+    category,
+    theme,
+    serial,
+    year,
+    pieces,
+    condition,
+    price,
+    imgUrl,
+    imgAlt
+}) => {
+    const [selectedIndex, setSelectedIndex] = useState(1);
     const [legoItemsData, setLegoItemsData] = useState([]);
 
     const fetchItems = () => {
@@ -24,14 +37,17 @@ const LegosElement = () => {
         legoItemsData.find((item) => item.id === parseInt(id));
     };
 
-    const handleItemClick = (event, index) => {
+    const handleItemClick = (e, index) => {
         setSelectedIndex(index);
         console.log(item.id);
     };
 
     return(
         <div className="mainDiv">
-            <SearchField className="searchField" />
+            <div className="searchField">
+                <SearchField />
+            </div>
+            <div className="contentDiv">
             {
                 legoItemsData.length > 0 ? legoItemsData.map((item) => (
                     <div className="itemCardsDiv">
@@ -41,7 +57,8 @@ const LegosElement = () => {
                                 component="img"
                                 alt={item.imgAlt}
                                 height= "auto"
-                                width = "300px"
+                                width = "15vw"
+                                display = "cover"
                                 image={item.imgUrl}
                             />
                             </div>
@@ -67,6 +84,7 @@ const LegosElement = () => {
                                     variant='contained'
                                     className='itemsButton'
                                     selected={selectedIndex === parseInt(item.id)}
+                                    onChange={(e) => console.log('data', legoItemsData)}
                                     onClick={(e) => handleItemClick(e, item.id)}
                                     key={item.itemName}>
                                     Add to Basket
@@ -76,13 +94,27 @@ const LegosElement = () => {
                     </div>
                 ))
                 :
-                // console.log('No data', legoItemsData)
                 <div className="alertDiv">
                     <AlertComponent />
                 </div>
             }
+            </div>
         </div>
     )
+}
+
+LegosElement.propTypes = {
+    id: number.isRequired,
+    name: string,
+    category: string,
+    theme: string,
+    serial: string,
+    year: number,
+    pieces: number,
+    condition: PropTypes.oneOf(['new', 'used']),
+    price: number,
+    imgUrl: string,
+    imgAlt: string
 }
 
 export default LegosElement;

@@ -2,20 +2,31 @@
 
 .buttons > .buttonGroup {
     width: 90vw;
+    padding-left: 10px;
 }
 
 .buttons > .buttonGroup > .button {
     box-shadow: grey 1px 0px;
+    font-family: 'Bungee Spice';
+}
+
+.buttons > .buttonGroup > .button > .home {
+    text-decoration-line: none;
+    font-size: 1.8rem;
 }
 
 .buttons > .buttonGroup > .button > .links {
     text-decoration-line: none;
-    font-family: 'Bungee Spice';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.buttons > .buttonGroup > .button > .adminLink {
+    text-decoration-line: none;
+    font-size: 1rem;
 }
 
 .buttons > .basketIcon {
     position: relative;
     left: 100px;
-    top: 20px;
+    top: 15px;
 }

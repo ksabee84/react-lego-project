@@ -1,11 +1,11 @@
-.mainDiv {
+.adminMainDiv {
+    height: 100vh;
+}
+
+.adminMainDiv > .buttonsContainer {
     text-align: center;
 }
 
-.mainDiv > .buttonsContainer > .itemDataButtons {
+.adminMainDiv > .buttonsContainer > .itemDataButtons {
     margin: 20px;
-}
-
-.mainDiv > .editable {
-    height: 88vh;
 }

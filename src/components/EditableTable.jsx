@@ -3,15 +3,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 
 const EditableTable = ({ rows, edit, deleteElement }) => (
-    <div style={ { height: '75vh', width: '100%' }}>
+    <div style={ { height: '80vh', width: '100%' }}>
         <DataGrid rows={rows} columns={columns(deleteElement)} onCellEditCommit={edit} />
     </div>
 );
 
 const columns = (deleteElement) => {
     return [
-        {field: 'id', headerName: 'ID', width: 50, editable: false},
-        {field: 'name', headerName: 'Name of Set', width: 400, editable: true},
+        {field: 'id', headerName: 'ID', width: 100, editable: false},
+        {field: 'name', headerName: 'Name of Set', width: 300, editable: true},
         {field: 'category', headerName: 'Category', width: 100, editable: true},
         {field: 'theme', headerName: 'Theme', width: 100, editable: true},
         {field: 'serial', headerName: 'Serial Number', width: 100, editable: true},
@@ -20,7 +20,7 @@ const columns = (deleteElement) => {
         {field: 'condition', headerName: 'Condition:', width: 100, editable: true},
         {field: 'price', headerName: 'Price (€)', type: 'number', width: 80, editable: true},
         {field: 'imgUrl', headerName: 'Image URL:', width: 150, editable: true},
-        //{field: 'imgAlt', headerName: 'Image title:', width: 150, editable: true},
+        {field: 'imgAlt', headerName: 'Image title:', width: 150, editable: true},
         {field: 'delete', headerName: 'Delete',
             renderCell: (params) => (
                 <strong>

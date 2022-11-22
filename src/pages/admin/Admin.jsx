@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import EditableTable from '../../components/EditableTable';
@@ -31,7 +31,7 @@ const AdminInterface = () => {
     };
 
     const editSaved = (valueChange) => {
-        const legoItemsKeys = Object.keys(legoItems);
+        // const legoItemsKeys = Object.keys(legoItems);
 
         const reqBody = {
             [valueChange.field]: valueChange.value,
@@ -67,7 +67,7 @@ const AdminInterface = () => {
     };
 
     return(
-        <div className='mainDiv'>
+        <div className='adminMainDiv'>
             <MenuElement className='menu' />
             <Container className='buttonsContainer'>
                 <Button

@@ -6,74 +6,87 @@
 
 .legosPage > .buttons {
     text-align: center;
+    position: fixed;
 }
 
 .legosPage > .mainDiv {
-    margin-top: 20px;
+    align-items: center;
+    display: block;
+}
+
+.legosPage > .mainDiv > .searchField {
+    position: fixed;
+    margin-top: 70px;
+    left: 20vw;
+}
+
+.legosPage > .mainDiv > .contentDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding-top: 130px;
 }
 
-.legosPage > .mainDiv > .searchField {
-    display: block;
-}
-
-.legosPage > .mainDiv > .alertDiv {
-    height: 88vh;
-}
-
-.legosPage > .mainDiv > .alertDiv > .problem {
-    margin-top: 200px;
-}
-
-.legosPage > .mainDiv > .alertDiv > .problem > .errorText {
-    font-family: 'Bungee Spice';
-}
-
-.legosPage > .mainDiv > .itemCardsDiv > .card {
-    margin: 10px 10px 0 10px;
-    width: 300px;
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card {
+    margin: 5px 10px 0 10px;
+    width: 15vw;
+    min-width: 200px;
     margin-bottom: 10px;
+    height: 75vh;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .imgDiv {
-    height: 330px;
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .imgDiv {
+    height: 20vh;
     align-items: center;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .imgDiv > .cardImg {
-    width: 300px;
-    height: auto;
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .imgDiv > .cardImg {
+    height: 20vh;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv {
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv {
     align-items: center;
+    height: 25vh;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemName {
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemName {
     font-family: 'Bungee Spice';
-    align-items: center;
-    height: 10vh;
+    text-align: center;
+    font-size: 1rem;
+    height: 15vh;
+    padding-top: 5vh;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemImgText {
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemImgText {
     font-family: 'Bungee Spice';
-    height: 50px;
+    font-size: 0.8rem;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .cardContent > .itemText {
+.legosPage > .mainDiv >  .contentDiv > .itemCardsDiv > .card > .cardContent > .itemText {
     font-family: 'Bungee Spice';
+    font-size: 0.6rem;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .itemCardActions {
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .itemCardActions {
     margin: 10px 0;
     display: flex;
     flex-direction: column;
     justify-items: center;
 }
 
-.legosPage > .mainDiv > .itemCardsDiv > .card > .itemCardActions > .itemsButton {
+.legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .itemCardActions > .itemsButton {
+    font-family: 'Bungee Spice';
+}
+
+.legosPage > .mainDiv > .contentDiv > .alertDiv {
+    height: 80vh;
+}
+
+.legosPage > .mainDiv > .contentDiv > .alertDiv > .problem {
+    margin-top: 200px;
+}
+
+.legosPage > .mainDiv > .contentDiv > .alertDiv > .problem > .errorText {
     font-family: 'Bungee Spice';
 }
