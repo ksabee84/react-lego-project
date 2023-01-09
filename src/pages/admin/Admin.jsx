@@ -55,6 +55,38 @@ const AdminInterface = () => {
         }
     };
 
+    let idCounter = 0;
+    const addNewItem = () => {
+        idCounter += 1;
+        return {
+            id: idCounter,
+            name: "",
+            category: "",
+            theme: "",
+            serial: "",
+            year: "",
+            pieces: "",
+            condition: "",
+            price: "",
+            /*
+            delete: {renderCell: (params) => (
+                <strong>
+                    <Button
+                        variant='contained'
+                        color='error'
+                        size='small'
+                        style={{ marginLeft: 16 }}
+                        id='deleteButton'
+                        onClick={ (e) => deleteElement(e, params) }
+                    >
+                        Delete
+                    </Button>
+                </strong>
+            ),
+            */
+        }
+    };
+
     const detailedRendering = () => {
         if(selectedItem) {
             return(
@@ -81,7 +113,7 @@ const AdminInterface = () => {
                     className='itemDataButtons'
                     size='big'
                     variant='contained'
-                    //onClick={ addNewItem }
+                    onClick={ addNewItem }
                     >
                         Add a New Set
                 </Button>

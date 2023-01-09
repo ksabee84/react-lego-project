@@ -4,8 +4,8 @@ import AlertTitle from '@mui/material/AlertTitle';
 
 const AlertComponent = () => {
     return(
-        <Alert severity="error" className="problem">
-            <AlertTitle className="errorText">Technical problem, we are soon back! Sorry!</AlertTitle>
+        <Alert severity="error" className="loading">
+            <AlertTitle className="errorText">Loading...</AlertTitle>
         </Alert>
     )
 }

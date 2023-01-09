@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes, { number, string } from 'prop-types';
-import SearchField from "./SearchField";
 import { Card, CardMedia, CardContent, CardActions } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AlertComponent from "./AlertComponent";
+import TextField from '@mui/material/TextField';
 
 const LegosElement = ({
     id,
@@ -19,37 +19,42 @@ const LegosElement = ({
     imgUrl,
     imgAlt
 }) => {
-    const [selectedIndex, setSelectedIndex] = useState(1);
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const [legoItemsData, setLegoItemsData] = useState([]);
+    const [searchField, setSearchField] = useState('');
+    const [countItems, setCountItems] = useState(0);
 
-    const fetchItems = () => {
+    const onSearchChange = (event) => {
+        setSearchField(event.target.value);
+    }
+
+    const filteredItems = legoItemsData.filter((item) => {
+        return item.name.toLowerCase().includes(searchField.toLowerCase());
+
+    })
+
+    useEffect(() => {
+        console.log(countItems);
         fetch('http://localhost:8080/api/v1/react-lego-project/items')
         .then((result) => result.json())
         .then((data) => setLegoItemsData(data))
         .catch((error) => {
             console.log('Data cannot be loaded: ', error);
-        });
-    };
-
-    fetchItems();
-
-    const item = (id) => {
-        legoItemsData.find((item) => item.id === parseInt(id));
-    };
-
-    const handleItemClick = (e, index) => {
-        setSelectedIndex(index);
-        console.log(item.id);
-    };
+        })}, [countItems]);
 
     return(
         <div className="mainDiv">
             <div className="searchField">
-                <SearchField />
+                <TextField
+                    sx={{ width: '60vw', bgcolor:'beige' }}
+                    onChange={onSearchChange}
+                    label="Type to search"
+                />
             </div>
+
             <div className="contentDiv">
             {
-                legoItemsData.length > 0 ? legoItemsData.map((item) => (
+                legoItemsData.length > 0 ? filteredItems.map((item) => (
                     <div className="itemCardsDiv">
                         <Card className="card">
                             <div className="imgDiv">
@@ -84,9 +89,8 @@ const LegosElement = ({
                                     variant='contained'
                                     className='itemsButton'
                                     selected={selectedIndex === parseInt(item.id)}
-                                    onChange={(e) => console.log('data', legoItemsData)}
-                                    onClick={(e) => handleItemClick(e, item.id)}
-                                    key={item.itemName}>
+                                    onClick={() => setCountItems(countItems+1)}
+                                    key={item.id}>
                                     Add to Basket
                                 </Button>
                             </CardActions>

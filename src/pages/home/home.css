@@ -8,20 +8,9 @@
     align-items: center;
 }
 
-.landingPageDiv > .enterButton{
-    display: flex;
-    margin: auto;
-}
-
-.landingPageDiv > .enterButton > .links{
-    text-decoration: none;
-    font-family: 'Bungee Spice';
-    font-size: 1.2rem;
-}
-
-.landingPageDiv > .welcome{
+.landingPageDiv > .welcome {
     padding-top: 8vh;
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
     margin: 0 20px;
     text-align: center;
     font-family: 'Bungee Spice';
@@ -30,13 +19,12 @@
     font-size: xx-large;
 }
 
-.landingPageDiv > .welcome > .lego{
+.landingPageDiv > .welcome > .lego {
     max-width: 50vw;
     margin: auto;
 }
 
-.landingPageDiv > .footer{
-    padding-top: 5vh;
+.landingPageDiv > .footer {
     font-family: 'Bungee Spice';
     font-size: 1rem;
     text-align: center;

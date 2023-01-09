@@ -12,7 +12,7 @@
 
 .buttons > .buttonGroup > .button > .home {
     text-decoration-line: none;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .buttons > .buttonGroup > .button > .links {
@@ -23,6 +23,10 @@
 .buttons > .buttonGroup > .button > .adminLink {
     text-decoration-line: none;
     font-size: 1rem;
+}
+
+.buttons > .buttonGroup > #adminButton {
+    display: block;
 }
 
 .buttons > .basketIcon {

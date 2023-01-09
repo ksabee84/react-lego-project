@@ -10,7 +10,7 @@
 
 .registerPage > .register > .registerFormBox {
     font-family: 'Bungee Spice';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .registerPage > .register > .registerFormBox > .inputs {
@@ -20,9 +20,23 @@
 
 }
 
-.registerPage > .register > .registerFormBox > .inputs > .submitBtn {
+.registerPage > .register > .registerFormBox > .buttons {
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.registerPage > .register > .registerFormBox > .buttons > .submitBtn {
     font-family: 'Bungee Spice';
     font-size: 1.2rem;
-    margin-top: 20px;
-    margin-bottom: 10vh;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 10vw;
+    height: 8vh;
+}
+
+.registerPage > .register > .registerFormBox > .buttons > #alreadyRegBtn {
+    font-size: 0.8rem;
 }

@@ -83,10 +83,11 @@
     height: 80vh;
 }
 
-.legosPage > .mainDiv > .contentDiv > .alertDiv > .problem {
+.legosPage > .mainDiv > .contentDiv > .alertDiv > .loading {
     margin-top: 200px;
 }
 
-.legosPage > .mainDiv > .contentDiv > .alertDiv > .problem > .errorText {
+.legosPage > .mainDiv > .contentDiv > .alertDiv > .loading > .errorText {
     font-family: 'Bungee Spice';
+    font-size: 2rem;
 }

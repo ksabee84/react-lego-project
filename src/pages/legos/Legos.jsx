@@ -4,6 +4,7 @@ import MenuElement from "../../components/MenuElement";
 import './legos.css';
 
 const Legos = () => {
+
     return(
         <div className="legosPage">
             <MenuElement />
