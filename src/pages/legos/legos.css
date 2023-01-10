@@ -16,8 +16,13 @@
 
 .legosPage > .mainDiv > .searchField {
     position: fixed;
-    margin-top: 70px;
-    left: 20vw;
+    margin-top: 95px;
+    border-radius: 10px;
+    left: 35px;
+}
+
+.legosPage > .mainDiv > .searchField > .basketIcon {
+    margin-left: 50vw;
 }
 
 .legosPage > .mainDiv > .contentDiv {
@@ -25,51 +30,52 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-top: 130px;
+    padding-top: 150px;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card {
     margin: 5px 10px 0 10px;
-    width: 15vw;
+    width: 20vw;
     min-width: 200px;
     margin-bottom: 10px;
     height: 75vh;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .imgDiv {
-    height: 20vh;
+    height: 25vh;
     align-items: center;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .imgDiv > .cardImg {
-    height: 20vh;
+    height: 25vh;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv {
     align-items: center;
-    height: 25vh;
+    height: 15vh;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemName {
     font-family: 'Bungee Spice';
     text-align: center;
     font-size: 1rem;
-    height: 15vh;
-    padding-top: 5vh;
+    height: 8vh;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv > .itemImgText {
     font-family: 'Bungee Spice';
     font-size: 0.8rem;
+    text-align: center;
 }
 
 .legosPage > .mainDiv >  .contentDiv > .itemCardsDiv > .card > .cardContent > .itemText {
     font-family: 'Bungee Spice';
-    font-size: 0.6rem;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .itemCardActions {
-    margin: 10px 0;
+    margin: 1px 0;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -80,14 +86,15 @@
 }
 
 .legosPage > .mainDiv > .contentDiv > .alertDiv {
-    height: 80vh;
+    height: 81vh;
+    text-align: center;
 }
 
 .legosPage > .mainDiv > .contentDiv > .alertDiv > .loading {
-    margin-top: 200px;
+    margin-top: 25vh;
 }
 
-.legosPage > .mainDiv > .contentDiv > .alertDiv > .loading > .errorText {
+.legosPage > .mainDiv > .contentDiv > .alertDiv > .loading > .alertText {
+    margin-top: 5vh;
     font-family: 'Bungee Spice';
-    font-size: 2rem;
 }

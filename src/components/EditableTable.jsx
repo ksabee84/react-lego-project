@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 
 const EditableTable = ({ rows, edit, deleteElement }) => (
-    <div style={ { height: '79vh', width: '100%' }}>
+    <div style={ { height: '77vh', width: '100%' }}>
         <DataGrid rows={rows} columns={columns(deleteElement)} onCellEditCommit={edit} />
     </div>
 );

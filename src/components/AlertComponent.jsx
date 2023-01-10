@@ -1,13 +1,17 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 
 const AlertComponent = () => {
     return(
-        <Alert severity="error" className="loading">
-            <AlertTitle className="errorText">Loading...</AlertTitle>
-        </Alert>
-    )
+        <div className="loading">
+            <Box sx={{ display: 'block' }}>
+                <CircularProgress />
+            </Box>
+            <Alert className="alertText" severity="error">Loading...</Alert>
+        </div>
+    );
 }
 
 export default AlertComponent;

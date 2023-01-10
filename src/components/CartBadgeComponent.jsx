@@ -3,6 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 const CartBadgeComponent = () => {
 
@@ -21,7 +22,9 @@ const CartBadgeComponent = () => {
       return (
         <IconButton aria-label="cart">
           <StyledBadge badgeContent={countItems} color="secondary">
-            <ShoppingCartIcon />
+            <Link to='/register' >
+              <ShoppingCartIcon />
+            </Link>
           </StyledBadge>
         </IconButton>
       );

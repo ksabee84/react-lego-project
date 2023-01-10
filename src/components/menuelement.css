@@ -28,9 +28,3 @@
 .buttons > .buttonGroup > #adminButton {
     display: block;
 }
-
-.buttons > .basketIcon {
-    position: relative;
-    left: 100px;
-    top: 15px;
-}

@@ -5,20 +5,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AlertComponent from "./AlertComponent";
 import TextField from '@mui/material/TextField';
+import CartBadgeComponent from './CartBadgeComponent';
 
-const LegosElement = ({
-    id,
-    name,
-    category,
-    theme,
-    serial,
-    year,
-    pieces,
-    condition,
-    price,
-    imgUrl,
-    imgAlt
-}) => {
+const LegosElement = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [legoItemsData, setLegoItemsData] = useState([]);
     const [searchField, setSearchField] = useState('');
@@ -32,7 +21,7 @@ const LegosElement = ({
         return item.name.toLowerCase().includes(searchField.toLowerCase());
 
     })
-
+    
     useEffect(() => {
         console.log(countItems);
         fetch('http://localhost:8080/api/v1/react-lego-project/items')
@@ -46,12 +35,13 @@ const LegosElement = ({
         <div className="mainDiv">
             <div className="searchField">
                 <TextField
-                    sx={{ width: '60vw', bgcolor:'beige' }}
+                    sx={{ width: '60vw', bgcolor:'beige' , marginRight: '30vw' }}
                     onChange={onSearchChange}
                     label="Type to search"
                 />
+                <CartBadgeComponent badgeContent={countItems} className="basketIcon" />
             </div>
-
+        
             <div className="contentDiv">
             {
                 legoItemsData.length > 0 ? filteredItems.map((item) => (
@@ -69,11 +59,14 @@ const LegosElement = ({
                             </div>
                             <CardContent className='cardContent'>
                                 <div className='itemNameDiv'>
-                                    <Typography gutterBottom variant="h6" component="div" className ='itemName' key={item.name}>
-                                        { item?.name } 
+                                    <Typography gutterBottom variant="h1" component="div" className ='itemName' key={item.name}>
+                                        { item?.name }
+                                    </Typography>
+                                    <Typography variant="h2" color="text.secondary" className='itemImgText'>
+                                        { item?.category } { item?.theme }
                                     </Typography>
                                     <Typography variant="body1" color="text.secondary" className='itemImgText'>
-                                        { item?.category } { item?.theme } { item?.serial }
+                                        { item?.serial }
                                     </Typography>
                                 </div>
                                 <Typography variant="body2" className='itemText'>

@@ -2,6 +2,7 @@
 
 .registerPage {
     height: 100vh;
+    padding-top: 80px;
 }
 
 .registerPage > .register > .registerFormBox {
@@ -17,7 +18,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .registerPage > .register > .registerFormBox > .buttons {
