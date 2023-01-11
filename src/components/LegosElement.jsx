@@ -8,10 +8,41 @@ import TextField from '@mui/material/TextField';
 import CartBadgeComponent from './CartBadgeComponent';
 
 const LegosElement = () => {
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedItem, setSelectedItem] = useState({});
     const [legoItemsData, setLegoItemsData] = useState([]);
     const [searchField, setSearchField] = useState('');
     const [countItems, setCountItems] = useState(0);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/api/v1/react-lego-project/items')
+        .then((result) => result.json())
+        .then((data) => {
+            setLegoItemsData(data);
+            setSelectedItem(data[1]);
+        })
+        .catch((error) => {
+            console.log('Data cannot be loaded: ', error);
+        })
+    }, [countItems, selectedItem]);
+
+    const getItemById = (id) => {
+        fetch(`http://localhost:8080/api/v1/react-lego-project/items/${id}`)
+        .then((result) => result.status === 200 ? result.json() : result.text())
+        .then((data) => {
+            setSelectedItem(data);
+            //selectedItem.id;
+        })
+        .catch((error) => {
+            console.log('Data cannot be loaded: ', error);
+        });
+    };
+
+    const handleItemClick = (index) => {
+        getItemById(index);
+        setCountItems(countItems+1);
+        console.log(countItems);
+        console.log(selectedItem);
+    }
 
     const onSearchChange = (event) => {
         setSearchField(event.target.value);
@@ -19,17 +50,7 @@ const LegosElement = () => {
 
     const filteredItems = legoItemsData.filter((item) => {
         return item.name.toLowerCase().includes(searchField.toLowerCase());
-
     })
-    
-    useEffect(() => {
-        console.log(countItems);
-        fetch('http://localhost:8080/api/v1/react-lego-project/items')
-        .then((result) => result.json())
-        .then((data) => setLegoItemsData(data))
-        .catch((error) => {
-            console.log('Data cannot be loaded: ', error);
-        })}, [countItems]);
 
     return(
         <div className="mainDiv">
@@ -81,8 +102,8 @@ const LegosElement = () => {
                                     size='large'
                                     variant='contained'
                                     className='itemsButton'
-                                    selected={selectedIndex === parseInt(item.id)}
-                                    onClick={() => setCountItems(countItems+1)}
+                                    selected={selectedItem.id === parseInt(item.id)}
+                                    onClick={() => handleItemClick(item.id)}
                                     key={item.id}>
                                     Add to Basket
                                 </Button>

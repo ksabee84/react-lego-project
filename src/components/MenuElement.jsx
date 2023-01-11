@@ -37,7 +37,7 @@ function ResponsiveAppBar() {
             variant="h1"
             noWrap
             component="a"
-            href="/"
+            href="/home"
             sx={{
               mr: 10,
               display: { xs: 'none', md: 'flex' },
@@ -84,10 +84,13 @@ function ResponsiveAppBar() {
               {pages.map((pages) => (
                 <MenuItem key={pages} onClick={handleCloseNavMenu}>
                   <Typography
+                    color="inherit"
+                    variant="contained"
                     textAlign="center"
+                    fontFamily= "Bungee Spice"
                     sx={{textDecoration: 'none'}}
                     >
-                    <Link to={pages.link} sx={{underline: "none"}} >{pages.name}</Link>
+                    <Link to={pages.link} style={{textDecoration: "none"}} >{pages.name}</Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -114,6 +117,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((pages) => (
               <Button
+                variant="contained"
                 key={pages}
                 onClick={handleCloseNavMenu}
                 component="a"
@@ -123,27 +127,26 @@ function ResponsiveAppBar() {
                   fontSize: '1.5rem',
                   color: 'white',
                   display: 'block',
-                  underline: 'none'
                 }}
               >
-                <Link to={pages.link} underline="none">{pages.name}</Link>
+                <Link to={pages.link} style={{ textDecoration: 'none'}} >{pages.name}</Link>
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex' }, textDecoration: 'none' }}>
+          <Box sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex' } }}>
             <Button
               component="a"
               fontFamily="Bungee Spice"
+              variant="contained"
               sx={{
                 my: 2,
                 fontFamily: 'Bungee Spice',
                 fontSize: '1rem',
                 color: 'white',
                 display: 'block',
-                underline: 'none'
               }}
               >
-              <Link to="/admin" underline='none'>Admin</Link>
+              <Link to="/admin" style={{textDecoration: 'none'}} >Admin</Link>
             </Button>
           </Box>
         </Toolbar>
@@ -151,26 +154,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-
-/*
-    <div className='buttons'>
-      <ButtonGroup variant="contained" aria-label="outlined primary button group" className='buttonGroup'>
-        <Button className='button' size='large'>
-          <Link to='/home' className="home">LEGO4ALL</Link>
-        </Button>
-        <Button className='button' size='small'>
-          <Link to='/legos' className="links">Lego Sets</Link>
-        </Button>
-        <Button className='button' size='small'>
-          <Link to='/register' className="links">Register here</Link>
-        </Button>
-      </ButtonGroup>
-      <Button variant="outlined" color="error" className='button' id='adminButton' size='small'>
-          <Link to='/admin' className="adminLink">Admin</Link>
-      </Button>
-    </div>
-  );
-}
-*/
 
 export default ResponsiveAppBar;
