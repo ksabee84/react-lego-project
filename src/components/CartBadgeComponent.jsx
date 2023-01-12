@@ -1,33 +1,27 @@
-import React, { useState } from 'react';
-import IconButton from '@mui/material/IconButton';
+import * as React from 'react';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
 
-const CartBadgeComponent = () => {
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -5,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
 
-  const [countItems, setCountItems] = useState(0);
-  const [legoItemsData, setLegoItemsData] = useState([]);
-
-  const StyledBadge = styled(Badge)(({ theme }) => ({
-      '& .MuiBadge-badge': {
-        right: -3,
-        top: 13,
-        border: `2px solid ${theme.palette.background.paper}`,
-        padding: '0 4px',
-      },
-    }));
-    
-      return (
-        <IconButton aria-label="cart">
-          <StyledBadge badgeContent={countItems} color="secondary">
-            <Link to='/register' >
-              <ShoppingCartIcon />
-            </Link>
-          </StyledBadge>
-        </IconButton>
-      );
-    }
-
-export default CartBadgeComponent;
+export default function CartBadgeComponent(props) {
+  return (
+    <IconButton aria-label="cart">
+      <Link to='/register' >
+        <StyledBadge badgeContent={props.badgeContent} color="secondary">
+          <ShoppingCartIcon />
+        </StyledBadge>
+      </Link>
+    </IconButton>
+  );
+}

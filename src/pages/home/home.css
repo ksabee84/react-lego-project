@@ -3,7 +3,7 @@
 .landingPageDiv{
     margin: 0px;
     box-sizing: border-box;
-    height: 100vh;
+    height: 100%;
     display: block;
     align-items: center;
 }
@@ -29,4 +29,5 @@
     font-size: 1rem;
     text-align: center;
     text-shadow: yellow 2px 2px;
+    padding-bottom: 9vh;
 }

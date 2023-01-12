@@ -16,9 +16,7 @@ const Home = () => {
                 <p>Szabolcs Károly © 2023</p>
                 <p>Contact: sabeegigant@gmail.com</p>
             </div>
-            
         </div>
-        
     );
 }
 

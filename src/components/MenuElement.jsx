@@ -16,6 +16,10 @@ const pages = [
   { name: 'Lego Sets', 
     link: '/legos',
   },
+  {
+    name: 'Admin',
+    link: '/admin',
+  } 
 ];
 
 function ResponsiveAppBar() {
@@ -127,27 +131,12 @@ function ResponsiveAppBar() {
                   fontSize: '1.5rem',
                   color: 'white',
                   display: 'block',
+                  mx: '20px'
                 }}
               >
                 <Link to={pages.link} style={{ textDecoration: 'none'}} >{pages.name}</Link>
               </Button>
             ))}
-          </Box>
-          <Box sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex' } }}>
-            <Button
-              component="a"
-              fontFamily="Bungee Spice"
-              variant="contained"
-              sx={{
-                my: 2,
-                fontFamily: 'Bungee Spice',
-                fontSize: '1rem',
-                color: 'white',
-                display: 'block',
-              }}
-              >
-              <Link to="/admin" style={{textDecoration: 'none'}} >Admin</Link>
-            </Button>
           </Box>
         </Toolbar>
       </Container>

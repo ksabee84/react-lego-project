@@ -18,11 +18,7 @@
     position: fixed;
     margin-top: 95px;
     border-radius: 10px;
-    left: 35px;
-}
-
-.legosPage > .mainDiv > .searchField > .basketIcon {
-    margin-left: 50vw;
+    left: 2vw;
 }
 
 .legosPage > .mainDiv > .contentDiv {

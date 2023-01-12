@@ -8,7 +8,8 @@ import AdminInterface from './pages/admin/Admin';
 const setBackgroundForWebsite = () => {
   const element = document.getElementById('root');
   element.style.boxSizing = 'border-box';
-  element.style.backgroundAttachment = 'fixed';
+  element.style.backgroundSize = 'cover';
+  //element.style.backgroundAttachment = 'local';
   element.style.backgroundPosition = '50% 50%';
   element.style.backgroundImage = "url('/img/lego_banner.jpeg')";
   element.style.opacity = '80%';

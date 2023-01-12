@@ -13,12 +13,14 @@ const LegosElement = () => {
     const [searchField, setSearchField] = useState('');
     const [countItems, setCountItems] = useState(0);
 
+    const badgeData = countItems;
+    const selectedItemsData = [];
+
     useEffect(() => {
         fetch('http://localhost:8080/api/v1/react-lego-project/items')
         .then((result) => result.json())
         .then((data) => {
             setLegoItemsData(data);
-            setSelectedItem(data[1]);
         })
         .catch((error) => {
             console.log('Data cannot be loaded: ', error);
@@ -40,6 +42,7 @@ const LegosElement = () => {
     const handleItemClick = (index) => {
         getItemById(index);
         setCountItems(countItems+1);
+        //selectedItemsData.push(...selectedItem);
         console.log(countItems);
         console.log(selectedItem);
     }
@@ -56,11 +59,17 @@ const LegosElement = () => {
         <div className="mainDiv">
             <div className="searchField">
                 <TextField
-                    sx={{ width: '60vw', bgcolor:'beige' , marginRight: '30vw' }}
+                    sx={{
+                        width: '60vw',
+                        bgcolor:'beige' ,
+                        marginRight: '25vw',
+                        borderRadius: '5px'
+                    }}
                     onChange={onSearchChange}
                     label="Type to search"
                 />
-                <CartBadgeComponent badgeContent={countItems} className="basketIcon" />
+                
+                <CartBadgeComponent badgeContent={badgeData} />
             </div>
         
             <div className="contentDiv">
@@ -122,7 +131,7 @@ const LegosElement = () => {
 }
 
 LegosElement.propTypes = {
-    id: number.isRequired,
+    id: number,
     name: string,
     category: string,
     theme: string,

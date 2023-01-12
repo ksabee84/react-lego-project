@@ -5,8 +5,44 @@ import EditableTable from '../../components/EditableTable';
 import MenuElement from '../../components/MenuElement';
 import './admin.css';
 
+    let idCounter = 12;
+    const createNewRow = () => {
+        idCounter += 1;
+        return {
+            id: idCounter,
+            name: "",
+            category: "",
+            theme: "",
+            serial: "",
+            year: "",
+            pieces: "",
+            condition: "",
+            price: "",
+            delete: ""
+            /*
+            delete: {renderCell: (params) => (
+                <strong>
+                    <Button
+                        variant='contained'
+                        color='error'
+                        size='small'
+                        style={{ marginLeft: 16 }}
+                        id='deleteButton'
+                        onClick={ (e) => deleteElement(e, params) }
+                    >
+                        Delete
+                    </Button>
+                </strong>
+            ),
+        };
+        */
+    };
+}
+
 const AdminInterface = () => {
 
+    const [rows, setRows] = useState(() => createNewRow());
+      
     const [legoItems, setLegoItems] = useState([]);
     const [selectedItem, setSelectedItem] = useState([]);
     const [isRenderDetail, setIsRenderDetail] = useState(false);
@@ -55,37 +91,11 @@ const AdminInterface = () => {
         }
     };
 
-    let idCounter = 0;
-    const addNewItem = () => {
-        idCounter += 1;
-        return {
-            id: idCounter,
-            name: "",
-            category: "",
-            theme: "",
-            serial: "",
-            year: "",
-            pieces: "",
-            condition: "",
-            price: "",
-            /*
-            delete: {renderCell: (params) => (
-                <strong>
-                    <Button
-                        variant='contained'
-                        color='error'
-                        size='small'
-                        style={{ marginLeft: 16 }}
-                        id='deleteButton'
-                        onClick={ (e) => deleteElement(e, params) }
-                    >
-                        Delete
-                    </Button>
-                </strong>
-            ),
-            */
-        }
-    };
+    const addNewRow = () => {
+        setRows((legoItems) => [...legoItems, createNewRow()]);
+        console.log(idCounter);
+        console.log(legoItems);
+      };
 
     const detailedRendering = () => {
         if(selectedItem) {
@@ -106,16 +116,17 @@ const AdminInterface = () => {
                     className='itemDataButtons'
                     size='big'
                     variant='contained'
-                    onClick={ fetchItems } >
-                        Show All Sets
+                    onClick={ fetchItems }
+                >
+                    Show All Sets
                 </Button>
                 <Button
                     className='itemDataButtons'
                     size='big'
                     variant='contained'
-                    onClick={ addNewItem }
-                    >
-                        Add a New Set
+                    onClick={ addNewRow }
+                >
+                    Add a New Set
                 </Button>
             </Container>
             {
