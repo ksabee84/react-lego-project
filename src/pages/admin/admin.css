@@ -1,5 +1,6 @@
 .adminMainDiv {
     height: 100vh;
+    background-image: url('../../img/lego_background_sepia.jpeg');
 }
 
 .adminMainDiv > .buttonsContainer {

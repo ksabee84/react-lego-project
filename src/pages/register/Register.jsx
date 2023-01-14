@@ -1,14 +1,14 @@
 import React from 'react';
 import MenuElement from '../../components/MenuElement';
-import SelectedItemsComponent from '../../components/SelectedItemsComponent';
+import SelectedItemsListComponent from '../../components/SelectedItemsListComponent';
 import RegisterElement from '../../components/RegisterElement';
 import './register.css';
 
-const Register = () => {
+const Register = (props) => {
     return (
         <div className='registerPage'>
             <MenuElement />
-            <SelectedItemsComponent />
+            <SelectedItemsListComponent content={ props.content } />
             <RegisterElement />
         </div>
     );

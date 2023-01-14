@@ -6,15 +6,17 @@ import Button from '@mui/material/Button';
 import AlertComponent from "./AlertComponent";
 import TextField from '@mui/material/TextField';
 import CartBadgeComponent from './CartBadgeComponent';
+import SelectedItemsComponent from './SelectedItemsComponent';
 
 const LegosElement = () => {
     const [selectedItem, setSelectedItem] = useState({});
+    const [selected, setSelected] = useState(false);
     const [legoItemsData, setLegoItemsData] = useState([]);
     const [searchField, setSearchField] = useState('');
     const [countItems, setCountItems] = useState(0);
 
     const badgeData = countItems;
-    const selectedItemsData = [];
+    let selectedItemsData = [];
 
     useEffect(() => {
         fetch('http://localhost:8080/api/v1/react-lego-project/items')
@@ -25,7 +27,7 @@ const LegosElement = () => {
         .catch((error) => {
             console.log('Data cannot be loaded: ', error);
         })
-    }, [countItems, selectedItem]);
+    }, [countItems, selectedItem, selected]);
 
     const getItemById = (id) => {
         fetch(`http://localhost:8080/api/v1/react-lego-project/items/${id}`)
@@ -39,12 +41,16 @@ const LegosElement = () => {
         });
     };
 
-    const handleItemClick = (index) => {
-        getItemById(index);
+    const handleItemClick = (id) => {
+        getItemById(id);
         setCountItems(countItems+1);
-        //selectedItemsData.push(...selectedItem);
+        setSelected(true);
+        selectedItemsData.push(selectedItem);
+
+        console.log(id);
         console.log(countItems);
-        console.log(selectedItem);
+        console.log(selectedItemsData);
+        console.log(selected, selectedItem.id);
     }
 
     const onSearchChange = (event) => {
@@ -61,8 +67,8 @@ const LegosElement = () => {
                 <TextField
                     sx={{
                         width: '60vw',
-                        bgcolor:'beige' ,
-                        marginRight: '25vw',
+                        bgcolor: 'beige' ,
+                        marginRight: '10vw',
                         borderRadius: '5px'
                     }}
                     onChange={onSearchChange}
@@ -70,6 +76,7 @@ const LegosElement = () => {
                 />
                 
                 <CartBadgeComponent badgeContent={badgeData} />
+                { countItems > 0 && <SelectedItemsComponent content={ selectedItem.name } /> }
             </div>
         
             <div className="contentDiv">

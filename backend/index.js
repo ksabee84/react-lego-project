@@ -162,19 +162,66 @@ const legoItems = [
         condition: 'used',
         imgUrl: '/img/lego_6279.jpg',
         imgAlt: "LEGO Pirates' Skull Island"
+    },
+    {
+        id: 13,
+        name: 'Train Station',
+        category: 'City',
+        theme: 'Trains',
+        serial: '60335',
+        year: 2022,
+        pieces: 907,
+        price: 80,
+        condition: 'new',
+        imgUrl: '/img/lego_60335.jpg',
+        imgAlt: 'LEGO City Train Station'
+    },
+    {
+        id: 14,
+        name: 'Titanic',
+        category: 'Icons',
+        theme: '',
+        serial: '10294',
+        year: 2021,
+        pieces: 9090,
+        price: 680,
+        condition: 'new',
+        imgUrl: '/img/lego_10294.jpg',
+        imgAlt: 'LEGO Icons Titanic ship'
+    },
+    {
+        id: 15,
+        name: 'Big Ben',
+        category: 'Creator Expert',
+        theme: 'Buildings',
+        serial: '10253',
+        year: 2016,
+        pieces: 4163,
+        price: 220,
+        condition: 'new',
+        imgUrl: '/img/lego_10253.jpg',
+        imgAlt: 'LEGO Creator Expert Big Ben'
+    },
+    {
+        id: 16,
+        name: `Sheriff's Lock Up`,
+        category: 'Western',
+        theme: 'Cowboys',
+        serial: '6755',
+        year: 1996,
+        pieces: 176,
+        price: 55,
+        condition: 'used',
+        imgUrl: '/img/lego_6755.jpg',
+        imgAlt: "LEGO Western Sheriff's Lock Up"
     }
-
-
 
 ];
 
-
-// összes elem lekérése:
 app.get('/api/v1/react-lego-project/items', (req, res) => {
     res.status(200).send(legoItems);
 });
 
-// egy elem lekérése id alapján:
 app.get('/api/v1/react-lego-project/items/:id', (req,res) => {
     const item = legoItems.find((item) => item.id === parseInt(req.params.id));
 
@@ -187,21 +234,14 @@ app.get('/api/v1/react-lego-project/items/:id', (req,res) => {
         });
 });
 
-// új elem hozzáadása:
-app.post('/api/v1/react-lego-project/items', (req, res) => {
-    checkDetailsOfReq({ req, res, newItem: true });
+app.delete('/api/v1/react-lego-project/items/:id', (req, res) => {
+    const { index } = checkDetailsOfReq({ req, res, newItem: false});
 
-    const newItem = {
-        id: legoItems.length + 1,
-        ...req.body,
-    };
+    legoItems.splice(index, 1);
 
-    legoItems.push(newItem);
-
-    res.status(200).send('Item has been added!');
+    res.status(200).send(`Item with id ${req.params.id} was deleted successfully!`);
 });
 
-// elem módosítása:
 app.put('/api/v1/react-lego-project/items/:id', (req, res) => {
     const { item, index } = checkDetailsOfReq({ req, res, newItem: false });
 
@@ -212,16 +252,6 @@ app.put('/api/v1/react-lego-project/items/:id', (req, res) => {
 
     res.status(200).send('Item was updated successfully!');
 });
-
-// elem törlése:
-app.delete('/api/v1/react-lego-project/items/:id', (req, res) => {
-    const { index } = checkDetailsOfReq({ req, res, newItem: false});
-
-    legoItems.splice(index, 1);
-
-    res.status(200).send(`Item with id ${req.params.id} was deleted successfully!`);
-});
-
 
 const checkDetailsOfReq = ({ req, res, newItem }) => {
     const item = legoItems.find((item) => item.id === parseInt(req.params.id));

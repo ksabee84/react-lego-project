@@ -80,7 +80,6 @@ const AdminInterface = () => {
         const response = await fetch(`http://localhost:8080/api/v1/react-lego-project/items/${itemId}`, {
             method: 'DELETE',
         });
-        console.log('response is: ', response);
 
         if(response.status === 200) {
             const item = legoItems.find((item) => item.id === parseInt(item.id));

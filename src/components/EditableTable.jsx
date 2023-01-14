@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 const EditableTable = ({ rows, edit, deleteElement }) => (
     <div style={ { height: '77vh', width: '100%' }}>
-        <DataGrid rows={rows} columns={columns(deleteElement)} onCellEditCommit={edit} />
+        <DataGrid rows={rows} columns={columns(deleteElement)} getRowId={row=>row.id} onCellEditCommit={edit} style={{ color: 'darkblue', textShadow: '1px 1px white' }}/>
     </div>
 );
 
@@ -17,11 +17,11 @@ const columns = (deleteElement) => {
         {field: 'serial', headerName: 'Serial Number', width: 120, editable: true},
         {field: 'year', headerName: 'Year', type: 'number', width: 80, editable: true},
         {field: 'pieces', headerName: 'Pieces', type: 'number', width: 80, editable: true},
-        {field: 'condition', headerName: 'Condition:', width: 100, editable: true},
+        {field: 'condition', headerName: 'Condition:', type: 'singleSelect', valueOptions:['new', 'used'], width: 100, editable: true},
         {field: 'price', headerName: 'Price (€)', type: 'number', width: 80, editable: true},
         //{field: 'imgUrl', headerName: 'Image URL:', width: 150, editable: true},
         //{field: 'imgAlt', headerName: 'Image title:', width: 150, editable: true},
-        {field: 'delete', headerName: 'Delete',
+        {field: 'delete', headerName: '',
             renderCell: (params) => (
                 <strong>
                     <Button

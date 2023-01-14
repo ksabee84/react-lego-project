@@ -12,10 +12,10 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }))
 
-const SelectedItemsComponent = (props) => {
+const SelectedItemsListComponent = (props) => {
   return(
     <>
-      <Box sx={{ width: '15vw', marginLeft: '10px' }}>
+      <Box sx={{ width: '60vw', mx: 'auto' }}>
         <Stack spacing={1}>
           <Item content={props.content}>{props.content}</Item>
         </Stack>
@@ -24,4 +24,4 @@ const SelectedItemsComponent = (props) => {
   )
 }
 
-export default SelectedItemsComponent;
+export default SelectedItemsListComponent;
