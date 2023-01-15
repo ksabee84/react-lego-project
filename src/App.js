@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Legos from './pages/legos/Legos';
 import Register from './pages/register/Register';
+import Contact from './pages/contact/Contact';
 import AdminInterface from './pages/admin/Admin';
 
 const setBackgroundForWebsite = () => {
@@ -10,7 +11,7 @@ const setBackgroundForWebsite = () => {
   element.style.boxSizing = 'border-box';
   element.style.backgroundSize = 'cover';
   //element.style.backgroundAttachment = 'local';
-  element.style.backgroundPosition = '50% 50%';
+  element.style.backgroundPosition = '80% 80%';
   element.style.backgroundImage = "url('/img/lego_banner.jpeg')";
   element.style.opacity = '80%';
 };
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/home' element={<Home />} />
           <Route path='/legos' element={<Legos />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/contact' element={<Contact />} />
           <Route path='/admin' element={<AdminInterface />} />
         </Routes>
       </BrowserRouter>

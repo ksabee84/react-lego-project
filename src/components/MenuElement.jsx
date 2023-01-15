@@ -16,6 +16,9 @@ const pages = [
   { name: 'Lego Sets', 
     link: '/legos',
   },
+  { name: 'Contact', 
+    link: '/contact',
+  },
   {
     name: 'Admin',
     link: '/admin',
@@ -34,9 +37,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar id='appBar' position="fixed" sx={{ backgroundImage: 'linear-gradient(to right, rgba(3,138,255,1), rgba(255,0,0,1))' }}>
+      <Container id='appBarContainer' maxWidth="xl">
+        <Toolbar id='toolbar' disableGutters>
           <Typography
             variant="h1"
             noWrap
@@ -49,8 +52,9 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               fontSize: '2rem',
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'yellow',
               textDecoration: 'none',
+              textShadow: 'black 2px 2px'
             }}
           >
             Lego4All
@@ -82,7 +86,7 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' },   
               }}
             >
               {pages.map((pages) => (
@@ -92,7 +96,7 @@ function ResponsiveAppBar() {
                     variant="contained"
                     textAlign="center"
                     fontFamily= "Bungee Spice"
-                    sx={{textDecoration: 'none'}}
+                    sx={{ textDecoration: 'none', textShadow: 'black 1px 1px' }}
                     >
                     <Link to={pages.link} style={{textDecoration: "none"}} >{pages.name}</Link>
                   </Typography>
@@ -114,27 +118,29 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              textShadow: 'black 2px 2px'
             }}
           >
             Lego4All
           </Typography>
-          <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
+          <Box id='menuButtonsDiv' sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((pages) => (
-              <Button
-                variant="contained"
+              <Button className='menuButtonDiv'
                 key={pages}
                 onClick={handleCloseNavMenu}
                 component="a"
                 sx={{
-                  my: 2,
+                  width: '142px',
+                  height: '50px',
+                  my: '10px',
                   fontFamily: 'Bungee Spice',
-                  fontSize: '1.5rem',
+                  fontSize: '1.2rem',
                   color: 'white',
-                  display: 'block',
-                  mx: '20px'
+                  mx: '20px',
+                  textShadow: 'black 2px 2px'
                 }}
               >
-                <Link to={pages.link} style={{ textDecoration: 'none'}} >{pages.name}</Link>
+                <Link to={pages.link} style={{ textDecoration: 'none', marginTop: '10px' }} >{pages.name}</Link>
               </Button>
             ))}
           </Box>
