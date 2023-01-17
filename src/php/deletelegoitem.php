@@ -12,22 +12,22 @@
         }
         
         if(isset($_POST["id"])) {
-        $id = $_POST["id"];
+            $id = $_POST["id"];
 
-        try {
-            $stmt = $dbo->prepare("DELETE FROM legoitems WHERE id = :id");
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
+            try {
+                $stmt = $dbo->prepare("DELETE FROM legoitems WHERE id = :id");
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmt->execute();
 
-            $response["ok"] = "Item deleted!";
+                $response["ok"] = "Item deleted!";
+            }
+            catch(PDOException $e) {
+                echo "Connection failed: ". $e->getMessage();
+            }
         }
-        catch(PDOException $e) {
-            echo "Connection failed: ". $e->getMessage();
+        else {
+            $response["error"] = "No id given!";
         }
-    }
-    else {
-        $response["error"] = "No id given!";
-    }
 
     echo json_encode($response);
 
