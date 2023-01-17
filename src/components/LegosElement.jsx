@@ -7,6 +7,7 @@ import AlertComponent from "./AlertComponent";
 import TextField from '@mui/material/TextField';
 import CartBadgeComponent from './CartBadgeComponent';
 import SelectedItemsComponent from './SelectedItemsComponent';
+import NoSetsComponent from "./NoSetsComponent";
 
 const LegosElement = () => {
     const [selectedItem, setSelectedItem] = useState({});
@@ -14,13 +15,16 @@ const LegosElement = () => {
     const [legoItemsData, setLegoItemsData] = useState([]);
     const [searchField, setSearchField] = useState('');
     const [countItems, setCountItems] = useState(0);
+    const [selectedItemsData, setSelectedItemsData] = useState([]);
 
     const badgeData = countItems;
-    let selectedItemsData = [];
+    const selectedItems = [];
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/v1/react-lego-project/items')
-        .then((result) => result.json())
+        fetch('http://localhost/react-lego-project/src/php/getlegos.php')
+        .then((result) => {
+            return result.json();
+        })
         .then((data) => {
             setLegoItemsData(data);
         })
@@ -30,11 +34,10 @@ const LegosElement = () => {
     }, [countItems, selectedItem, selected]);
 
     const getItemById = (id) => {
-        fetch(`http://localhost:8080/api/v1/react-lego-project/items/${id}`)
+        fetch(`http://localhost/react-lego-project/src/php/getonelego.php?id=${id}`)
         .then((result) => result.status === 200 ? result.json() : result.text())
         .then((data) => {
             setSelectedItem(data);
-            //selectedItem.id;
         })
         .catch((error) => {
             console.log('Data cannot be loaded: ', error);
@@ -45,12 +48,12 @@ const LegosElement = () => {
         getItemById(id);
         setCountItems(countItems+1);
         setSelected(true);
-        selectedItemsData.push(selectedItem);
-
+        selectedItems.push(...selectedItem);
+        
         console.log(id);
         console.log(countItems);
-        console.log(selectedItemsData);
-        console.log(selected, selectedItem.id);
+        console.log(selectedItems);
+        console.log(selectedItem);
     }
 
     const onSearchChange = (event) => {
@@ -58,7 +61,15 @@ const LegosElement = () => {
     }
 
     const filteredItems = legoItemsData.filter((item) => {
-        return item.name.toLowerCase().includes(searchField.toLowerCase());
+        if (item) {
+            return item.name.toLowerCase().includes(searchField.toLowerCase())
+        } else {
+            return(
+                <div>
+                    <NoSetsComponent />
+                </div>
+            )
+        };
     })
 
     return(
@@ -76,7 +87,7 @@ const LegosElement = () => {
                 />
                 
                 <CartBadgeComponent badgeContent={badgeData} />
-                { countItems > 0 && <SelectedItemsComponent content={ selectedItem.name } /> }
+                { countItems > 0 && <SelectedItemsComponent content={ selectedItems } /> }
             </div>
         
             <div className="contentDiv">
@@ -94,7 +105,7 @@ const LegosElement = () => {
                                 image={item.imgUrl}
                             />
                             </div>
-                            <CardContent className='cardContent'>
+                            <CardContent className='cardContent' sx={{ textShadow: 'black 1px 1px' }}>
                                 <div className='itemNameDiv'>
                                     <Typography gutterBottom variant="h1" component="div" className ='itemName' key={item.name}>
                                         { item?.name }
@@ -113,11 +124,12 @@ const LegosElement = () => {
                                         <p>Price: { item.price } €</p>
                                 </Typography>
                             </CardContent>
-                            <CardActions className='itemCardActions'>
+                            <CardActions className='itemCardActions' >
                                 <Button
                                     size='large'
                                     variant='contained'
                                     className='itemsButton'
+                                    style={{ textShadow: 'black 1px 1px' }}
                                     selected={selectedItem.id === parseInt(item.id)}
                                     onClick={() => handleItemClick(item.id)}
                                     key={item.id}>

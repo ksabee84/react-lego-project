@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 const EditableTable = ({ rows, edit, deleteElement }) => (
     <div style={ { height: '77vh', width: '100%' }}>
-        <DataGrid rows={rows} columns={columns(deleteElement)} getRowId={row=>row.id} onCellEditCommit={edit} style={{ color: 'yellow', textShadow: '1px 1px white' }}/>
+        <DataGrid rows={rows} columns={columns(deleteElement)} getRowId={row=>row.id} onCellEditCommit={edit} style={{ color: 'yellow', textShadow: 'black 1px 1px' }}/>
     </div>
 );
 

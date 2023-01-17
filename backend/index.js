@@ -109,7 +109,7 @@ const legoItems = [
         price: 100,
         condition: 'new',
         imgUrl: '/img/lego_31120.jpg',
-        imgAlt: 'LEGO Medival Castle'
+        imgAlt: 'LEGO Medieval Castle'
     },
     {
         id: 9,

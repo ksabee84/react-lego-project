@@ -1,11 +1,12 @@
 .adminMainDiv {
-    height: 100vh;
+    height: 100%;
     background-image: url('../../img/lego_background_sepia.jpeg');
+    background-size: cover;
 }
 
 .adminMainDiv > .buttonsContainer {
     text-align: center;
-    padding-top: 11vh;
+    padding-top: 10vh;
 }
 
 .adminMainDiv > .buttonsContainer > .itemDataButtons {

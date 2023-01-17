@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import EditableTable from '../../components/EditableTable';
 import MenuElement from '../../components/MenuElement';
+import AddNewSetComponent from '../../components/AddNewSetComponent';
 import './admin.css';
 
     let idCounter = 12;
@@ -48,7 +49,7 @@ const AdminInterface = () => {
     const [isRenderDetail, setIsRenderDetail] = useState(false);
 
     const fetchItems = () => {
-        fetch('http://localhost:8080/api/v1/react-lego-project/items')
+        fetch('http://localhost/react-lego-project/src/php/getlegos.php')
         .then((result) => result.json())
         .then((data) => setLegoItems(data))
         .catch((error) => {
@@ -57,7 +58,7 @@ const AdminInterface = () => {
     };
 
     const updateItemData = async (body, id) => {
-        const response = await fetch(`http://localhost:8080/api/v1/react-lego-project/items/${id}`, {
+        const response = await fetch(`http://localhost/react-lego-project/src/php/updateonelegoitem.php?id=${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -76,8 +77,8 @@ const AdminInterface = () => {
         updateItemData(reqBody, valueChange.id);
     };
 
-    const deleteItem = async (itemId) => {
-        const response = await fetch(`http://localhost:8080/api/v1/react-lego-project/items/${itemId}`, {
+    const deleteItem = async (id) => {
+        const response = await fetch(`http://localhost/react-lego-project/src/php/deletelegoitem.php?`, {
             method: 'DELETE',
         });
 
@@ -107,6 +108,8 @@ const AdminInterface = () => {
         }
     };
 
+                
+
     return(
         <div className='adminMainDiv'>
             <MenuElement className='menu' />
@@ -119,14 +122,7 @@ const AdminInterface = () => {
                 >
                     Show All Sets
                 </Button>
-                <Button
-                    className='itemDataButtons'
-                    size='big'
-                    variant='contained'
-                    onClick={ addNewRow }
-                >
-                    Add a New Set
-                </Button>
+                
             </Container>
             {
                 isRenderDetail && detailedRendering()
@@ -137,7 +133,8 @@ const AdminInterface = () => {
                 deleteElement={(e, params) => deleteItem(params.id).then( () => {fetchItems()})}
                 id='editableTable'
                 className='editable'
-            /> 
+            />
+            <AddNewSetComponent />
         </div>
     );
 };

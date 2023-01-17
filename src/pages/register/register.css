@@ -5,6 +5,12 @@
     padding-top: 90px;
 }
 
+.registerPage > .regTitle {
+    text-align: center;
+    font-family: 'Bungee Spice';
+    font-size: 1.2rem;
+}
+
 .registerPage > .register > .registerFormBox {
     text-align: center;
 }
@@ -12,6 +18,10 @@
 .registerPage > .register > .registerFormBox {
     font-family: 'Bungee Spice';
     font-size: 1.2rem;
+}
+
+.registerPage > .register > .registerFormBox > .regTitle {
+    text-shadow: black 1px 1px;
 }
 
 .registerPage > .register > .registerFormBox > .inputs {
