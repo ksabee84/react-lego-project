@@ -5,7 +5,7 @@ import Link from '@mui/material/Link';
 const ContactComponent = () => {
     return(
         <div className="contactDiv">
-            <Box className="contactBox" sx={{ height: '100%', width: '20vw', mx: 'auto', paddingTop: '30vh' }}>
+            <Box className="contactBox" sx={{ height: '100%', mx: 'auto', paddingTop: '30vh' }}>
                     <div className="linkDivs" id="emailDiv">
                         <Link
                             className="link"

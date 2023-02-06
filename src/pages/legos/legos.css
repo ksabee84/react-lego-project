@@ -34,12 +34,13 @@
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .imgDiv {
-    width: 100%;
-    align-items: center;
+    max-width: 100%;
+    height: 25vh;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .imgDiv > .cardImg {
-    height: 25vh;
+    max-height: 25vh;
+    max-width: 100%;
 }
 
 .legosPage > .mainDiv > .contentDiv > .itemCardsDiv > .card > .cardContent > .itemNameDiv {

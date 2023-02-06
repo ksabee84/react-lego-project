@@ -15,10 +15,9 @@ const LegosElement = () => {
     const [legoItemsData, setLegoItemsData] = useState([]);
     const [searchField, setSearchField] = useState('');
     const [countItems, setCountItems] = useState(0);
-    const [selectedItemsData, setSelectedItemsData] = useState([]);
+    const [selectedItems, setSelectedItems] = useState([]);
 
     const badgeData = countItems;
-    const selectedItems = [];
 
     useEffect(() => {
         fetch('http://localhost/react-lego-project/src/php/getlegos.php')
@@ -31,13 +30,14 @@ const LegosElement = () => {
         .catch((error) => {
             console.log('Data cannot be loaded: ', error);
         })
-    }, [countItems, selectedItem, selected]);
+    }, [countItems, selectedItem, selected, selectedItems]);
 
     const getItemById = (id) => {
         fetch(`http://localhost/react-lego-project/src/php/getonelego.php?id=${id}`)
         .then((result) => result.status === 200 ? result.json() : result.text())
         .then((data) => {
-            setSelectedItem(data);
+            setSelectedItem(data[0]);
+            setSelectedItems([...selectedItems, data[0]]);
         })
         .catch((error) => {
             console.log('Data cannot be loaded: ', error);
@@ -46,14 +46,8 @@ const LegosElement = () => {
 
     const handleItemClick = (id) => {
         getItemById(id);
-        setCountItems(countItems+1);
-        setSelected(true);
-        selectedItems.push(...selectedItem);
-        
-        console.log(id);
-        console.log(countItems);
-        console.log(selectedItems);
-        console.log(selectedItem);
+        setCountItems(selectedItems.length + 1);
+        setSelected(true); 
     }
 
     const onSearchChange = (event) => {
@@ -72,6 +66,13 @@ const LegosElement = () => {
         };
     })
 
+    const selectedItemsName = [selectedItem.name];
+
+    console.log('countItems', countItems);
+    console.log('selectedItem', selectedItem);
+    console.log('selectedItems', selectedItems);
+    console.log('selectedItemsName', selectedItemsName);
+
     return(
         <div className="mainDiv">
             <div className="searchField">
@@ -87,7 +88,8 @@ const LegosElement = () => {
                 />
                 
                 <CartBadgeComponent badgeContent={badgeData} />
-                { countItems > 0 && <SelectedItemsComponent content={ selectedItems } /> }
+                { countItems > 0 &&
+                    <SelectedItemsComponent content={ selectedItemsName } /> }
             </div>
         
             <div className="contentDiv">

@@ -44,7 +44,7 @@
                     <button type="reset" class="btn btn-secondary">Undo</button>
                     <button type="submit" class="btn btn-dark" name="reg">Registration</button>
                 </form>
-                <a href="/login.php" class="text-dark">I've already registered</a>
+                <a href="/react-lego-project/src/php/login.php" class="text-dark">I've already registered</a>
             </div>
         </div>
     </div>

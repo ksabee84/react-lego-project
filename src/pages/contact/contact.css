@@ -11,6 +11,7 @@
 
 .contactPage > .contactDiv > .contactBox > .linkDivs {
     width: 300px;
+    margin: auto;
 }
 
 .contactPage > .contactDiv > .contactBox > #emailDiv {
